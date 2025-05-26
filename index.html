@@ -2,18 +2,44 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Application Météo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WeatherFree</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Leaflet-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
+
 <body>
-  <h1>Application Météo</h1>
+  <div class="app-container">
+    <main>
+      <header class="app-header">
+        <h1>☀️ Weather Free 🌧️</h1>
+      </header>
 
-  <label for="villeSelect">Choisis une ville :</label>
-  <select id="villeSelect">
-    <option>Chargement...</option>
-  </select>
+      <section class="search-section">
+        <label for="villeInput">Entrez une commune :</label>
+        <div class="input-group">
+          <input type="text" id="villeInput" placeholder="Beauvais" autocomplete="off">
+          <button id="searchBtn">Rechercher</button>
+        </div>
+        <ul id="suggestions" class="suggestions-list"></ul>
+      </section>
+<!-- double classe pour pouvoir masquer les éléments sans détruire mon css -->
+      <section class="meteo-section hidden" id="meteo"></section>
+      <section class="carte-section hidden">
+        <div id="map"></div>
+      </section>
 
-  <div id="meteoResultat" style="margin-top: 20px;"></div>
+    </main>
 
-  <script src="script.js"></script>
+    <footer class="footer">
+      <p>Données météo fournies par OpenWeatherMap</p>
+      <p class="credits">@Zarhouni Mehdi || 2025 Tous droits réservés</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </div>
 </body>
 </html>
