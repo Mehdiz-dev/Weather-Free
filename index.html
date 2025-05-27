@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WeatherFree</title>
+  <title>Weather Free</title>
   <link rel="stylesheet" href="style.css">
   
   <!-- Leaflet-->
@@ -21,16 +21,18 @@
       <section class="search-section">
         <label for="villeInput">Entrez une commune :</label>
         <div class="input-group">
-          <input type="text" id="villeInput" placeholder="Beauvais" autocomplete="off">
+          <input type="text" id="villeInput" placeholder="Tapez un nom de ville...">
           <button id="searchBtn">Rechercher</button>
         </div>
         <ul id="suggestions" class="suggestions-list"></ul>
       </section>
+      <div class="layout-columns">
 <!-- double classe pour pouvoir masquer les éléments sans détruire mon css -->
       <section class="meteo-section hidden" id="meteo"></section>
       <section class="carte-section hidden">
         <div id="map"></div>
       </section>
+      </div>
 
     </main>
 

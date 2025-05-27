@@ -84,12 +84,17 @@ function afficherMeteo(data, nom) {
   const icon = data.weather[0].icon;
   const iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
-  meteoDiv.innerHTML = `
-    <h2>${nom}</h2>
-    <img src="${iconUrl}" alt="${desc}">
-    <p>${desc}</p>
-    <p><strong>${temp}°C</strong></p>
-  `;
+meteoDiv.innerHTML = `
+  <div class="meteo-wrapper">
+    <img src="${iconUrl}" alt="${desc}" class="meteo-icone">
+    <div class="meteo-infos">
+      <h2 class="meteo-nom">${nom}</h2>
+      <p class="meteo-desc">${desc}</p>
+      <p class="meteo-temp"><strong>${temp}°C</strong></p>
+    </div>
+  </div>
+`;
+
 
   document.querySelector('.meteo-section').classList.remove('hidden');
   document.querySelector('.carte-section').classList.remove('hidden');
@@ -102,10 +107,9 @@ function afficherCarte(lat, lon, nom) {
   }
 
   const carteSection = document.querySelector(".carte-section");
-  carteSection.innerHTML = "";
   const mapDiv = document.createElement("div");
   mapDiv.id = "map";
-  mapDiv.style.height = "300px";
+  mapDiv.style.width = "100%";
   carteSection.appendChild(mapDiv);
 
   window.map = L.map('map').setView([lat, lon], 10);
