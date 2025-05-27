@@ -171,6 +171,34 @@ button#searchBtn:hover {
   text-align: center;
 }
 
+body.clear {
+  background: linear-gradient(to bottom, #FFD580, #FFF7DC); /*dégagé */
+}
+
+body.clouds {
+  background: linear-gradient(to bottom, #B0BEC5, #ECEFF1); /* nuageux */
+}
+
+body.rain {
+  background: linear-gradient(to bottom, #A0A0A0, #D0D0D0); /* pluie */
+}
+
+body.snow {
+  background: linear-gradient(to bottom, #E0F7FA, #FFFFFF); /* neige */
+}
+
+body.foggy {
+  background: linear-gradient(to bottom, #D8D8D8, #F0F0F0); /* brume */
+}
+
+body.storm {
+  background: linear-gradient(to bottom, #3a3a3a, #1a1a1a); /* orage */
+}
+
+body.extreme {
+  background: linear-gradient(to bottom, #444, #000); /*extrêmes */
+}
+
 
 @media (min-width: 768px) {
   .app-container {
@@ -217,7 +245,7 @@ button#searchBtn:hover {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    gap: 2rem;
+    gap: 1rem;
     margin-top: 2rem;
   }
   
@@ -225,11 +253,11 @@ button#searchBtn:hover {
   .carte-section {
     width: 50%;
     max-width: none;
-    padding: 2rem;
+    padding: 0rem;
     border-radius: 16px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     background-color: #fff;
-    min-height: 350px;
+    min-height: 300px;
   }
   .meteo-wrapper {
     flex-direction: row;

@@ -76,6 +76,18 @@ async function chercherVille() {
   }
 }
 
+function getWeatherClass(main) {
+  const m = main.toLowerCase();
+  if (["rain", "drizzle"].includes(m)) return "rain";
+  if (["mist", "fog", "haze", "smoke", "dust", "sand"].includes(m)) return "foggy";
+  if (["thunderstorm"].includes(m)) return "storm";
+  if (["tornado", "squall", "ash"].includes(m)) return "extreme";
+  if (["snow"].includes(m)) return "snow";
+  if (["clouds"].includes(m)) return "clouds";
+  if (["clear"].includes(m)) return "clear";
+  return "";
+}
+
 // Afficher la météo pour la ville sélectionnée/recherchée
 function afficherMeteo(data, nom) {
   const meteoDiv = document.getElementById("meteo");
@@ -83,8 +95,13 @@ function afficherMeteo(data, nom) {
   const desc = data.weather[0].description;
   const icon = data.weather[0].icon;
   const iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+  
+  const mainWeather = data.weather[0].main;
+  const weatherClass = getWeatherClass(mainWeather);
+  document.body.className = "";
+  if (weatherClass) document.body.classList.add(weatherClass);
 
-meteoDiv.innerHTML = `
+  meteoDiv.innerHTML = `
   <div class="meteo-wrapper">
     <img src="${iconUrl}" alt="${desc}" class="meteo-icone">
     <div class="meteo-infos">
@@ -107,9 +124,14 @@ function afficherCarte(lat, lon, nom) {
   }
 
   const carteSection = document.querySelector(".carte-section");
+
+  const oldMapDiv = document.getElementById("map");
+  if (oldMapDiv) oldMapDiv.remove();
+
   const mapDiv = document.createElement("div");
   mapDiv.id = "map";
   mapDiv.style.width = "100%";
+  mapDiv.style.height = "300px";
   carteSection.appendChild(mapDiv);
 
   window.map = L.map('map').setView([lat, lon], 10);
