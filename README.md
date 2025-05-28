@@ -32,8 +32,8 @@ This will open in your browser. Enter the name of your chosen commune to obtain 
 This application uses HTML, CSS and JavaScript as well as 2 APIs.
 
 The APIs used are :
-- openweathermap.org -> which is used to retrieve the various weather data, as well as the names of the communes.
-- geo.api.gouv.fr -> which is used to retrieve the names of communes to be pooled with the openweathermap data, and their GPS coordinates.
+- openweathermap.org -> which is used to retrieve the various weather data, as well as the names of the communes. https://openweathermap.org/
+- geo.api.gouv.fr -> which is used to retrieve the names of communes to be pooled with the openweathermap data, and their GPS coordinates.https://geo.api.gouv.fr/
 
 This application also has Leaflet integration to embed a map to show the location of the place.
 
