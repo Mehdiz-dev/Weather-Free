@@ -10,8 +10,8 @@ Ce dernier s'ouvrira dans votre navigateur. Indiquez le nom de la commune choisi
 Pour cette application, les langages HTML, CSS et JavaScript ont été utilisés ainsi que 2 API.
 
 Les API utilisées sont :
-- openweathermap.org -> qui sert à récupérer les diverses informations météorologiques, ainsi que les noms des communes.
-- geo.api.gouv.fr -> qui sert à récupérer les noms de communes pour mettre en commun avec les données de openweathermap, et leurs coordonnées GPS.
+- openweathermap.org -> qui sert à récupérer les diverses informations météorologiques, ainsi que les noms des communes. https://openweathermap.org/
+- geo.api.gouv.fr -> qui sert à récupérer les noms de communes pour mettre en commun avec les données de openweathermap, et leurs coordonnées GPS. https://geo.api.gouv.fr/
 
 Cette application a également une intégration Leaflet pour intégrer une carte pour montrer la localisation de l'endroit.
 
