@@ -87,6 +87,24 @@ function getWeatherClass(main) {
   if (["clear"].includes(m)) return "clear";
   return "";
 }
+function activerEffetMeteo(classe) {
+  if (classe === "clouds") classe = "foggy";
+
+  const effets = {
+    rain: document.getElementById("rain-effect"),
+    foggy: document.getElementById("fog-effect"),
+    snow: document.getElementById("snow-effect"),
+  };
+
+  Object.values(effets).forEach(el => {
+    if (el) el.style.opacity = "0";
+  });
+
+  if (effets[classe]) {
+    effets[classe].style.opacity = "1";
+  }
+}
+
 
 // Afficher la météo pour la ville sélectionnée/recherchée
 function afficherMeteo(data, nom) {
@@ -95,24 +113,22 @@ function afficherMeteo(data, nom) {
   const desc = data.weather[0].description;
   const icon = data.weather[0].icon;
   const iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-  
+
   const mainWeather = data.weather[0].main;
   const weatherClass = getWeatherClass(mainWeather);
   document.body.className = "";
   if (weatherClass) document.body.classList.add(weatherClass);
-
-  meteoDiv.innerHTML = `
-  <div class="meteo-wrapper">
-    <img src="${iconUrl}" alt="${desc}" class="meteo-icone">
-    <div class="meteo-infos">
-      <h2 class="meteo-nom">${nom}</h2>
-      <p class="meteo-desc">${desc}</p>
-      <p class="meteo-temp"><strong>${temp}°C</strong></p>
-    </div>
-  </div>
-`;
-
-
+    activerEffetMeteo(weatherClass);
+    meteoDiv.innerHTML = `
+      <div class="meteo-wrapper">
+        <img src="${iconUrl}" alt="${desc}" class="meteo-icone">
+        <div class="meteo-infos">
+          <h2 class="meteo-nom">${nom}</h2>
+          <p class="meteo-desc">${desc}</p>
+          <p class="meteo-temp"><strong>${temp}°C</strong></p>
+        </div>
+      </div>
+      `;
   document.querySelector('.meteo-section').classList.remove('hidden');
   document.querySelector('.carte-section').classList.remove('hidden');
 }

@@ -1,4 +1,5 @@
 .app-container {
+    position: relative;
     background-color: #F3F3F3;
     max-width: 400px;
     margin: 2rem auto;
@@ -6,6 +7,7 @@
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     padding: 0 0 1rem 0;
+    z-index: 1;
 }
 
 body {
@@ -313,4 +315,57 @@ body.extreme {
   button#searchBtn {
     font-size: 1rem;
   }
+}
+
+.weather-effect {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  display: block;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+#rain-effect::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/pluie.png');
+  animation: rainMove 0.5s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes rainMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100px; }
+}
+
+#fog-effect {
+  background: url('./assets/nuage.png') repeat;
+  opacity: 0.15;
+  animation: fogFlow 60s linear infinite;
+}
+
+@keyframes fogFlow {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
+}
+
+#snow-effect::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/neige.png');
+  animation: snowFall 4s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes snowFall {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 300px; }
 }
