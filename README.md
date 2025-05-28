@@ -17,3 +17,25 @@ Cette application a également une intégration Leaflet pour intégrer une carte
 
 Dépendances :
 - dossier assets
+
+---------------------------------------------------------------------------------------------------------------
+
+# Weather-Free
+
+
+This website application is an exercise assessed as part of the Web & Mobile Web Developer training course,
+where the objective is to create a weather application for French cities, and thus obtain weather information for them.
+
+To install it, you need to download the full zip folder, extract it, and run the index.html file inside.
+This will open in your browser. Enter the name of your chosen commune to obtain weather information and the commune's location.
+
+This application uses HTML, CSS and JavaScript as well as 2 APIs.
+
+The APIs used are :
+- openweathermap.org -> which is used to retrieve the various weather data, as well as the names of the communes.
+- geo.api.gouv.fr -> which is used to retrieve the names of communes to be pooled with the openweathermap data, and their GPS coordinates.
+
+This application also has Leaflet integration to embed a map to show the location of the place.
+
+Dependencies :
+- assets folder
