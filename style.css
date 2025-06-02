@@ -279,6 +279,8 @@ body.extreme {
     align-items: stretch;
     gap: 1rem;
     margin-top: 2rem;
+    padding : 1rem
+
   }
   
   .meteo-section,
